@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo</title>
+  <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+  <link href="//unpkg.com/layui@2.8.4/dist/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<ul class="layui-nav layui-bg-cyan">
+  <li class="layui-nav-item" id="sub1"><a href="MainHome.html">首页</a></li>
+  <li class="layui-nav-item" id="sub2"><a href="">物资需求</a></li>
+  <li class="layui-nav-item" id="sub3"><a href="presetting.html">物资预置</a></li>
+  <li class="layui-nav-item" id="sub4"><a href="">物资调度</a></li>
+  <li class="layui-nav-item" id="sub5"><a href="">运输保障</a></li>
+</ul>
+<br>
+
+<!-- 子页面 -->
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;储备点物资信息</h1>
+<br>
+<!--物资展示表格-->
+<div style="width: 1200px; padding: 50px">
+  <table class="layui-hide" id="ID-table-demo-data"></table>
+</div>
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="//unpkg.com/layui@2.8.4/dist/layui.js"></script>
+<script>
+  layui.use('table', function(){
+    var table = layui.table;
+
+    // 已知数据渲染
+    var inst = table.render({
+      elem: '#ID-table-demo-data',
+      cols: [[ //标题栏
+        {field: 'storeId', title: '存储点id', width: 120},
+        {field: 'categoryId', title: '物资种类id', width: 120},
+        {field: 'storePointId', title: '储备点id', minWidth: 100},
+        {field: 'materialNumber', title: '物资数量', width: 150},
+        {field: 'storePointSize', title: '储备点规模', width: 150},
+        {field: 'storePointName', title: '储备点名称', width: 150}
+      ]],
+      data: JSON.parse(localStorage.getItem("data")),
+      // data: [{ // 赋值已知数据
+      //   "id": "10001",
+      //   "username": "张三1",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "116"
+      // }, {
+      //   "id": "10002",
+      //   "username": "张三2",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "12",
+      //   "LAY_CHECKED": true
+      // }, {
+      //   "id": "10003",
+      //   "username": "张三3",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "65"
+      // }, {
+      //   "id": "10004",
+      //   "username": "张三4",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "777"
+      // }, {
+      //   "id": "10005",
+      //   "username": "张三5",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "86"
+      // }, {
+      //   "id": "10006",
+      //   "username": "张三6",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "12"
+      // }, {
+      //   "id": "10007",
+      //   "username": "张三7",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "16"
+      // }, {
+      //   "id": "10008",
+      //   "username": "张三8",
+      //   "sex": "男",
+      //   "city": "浙江杭州",
+      //   "sign": "人生恰似一场修行",
+      //   "experience": "106"
+      // }],
+      //skin: 'line', // 表格风格
+      //even: true,
+      page: true, // 是否显示分页
+      limits: [5, 10, 15],
+      limit: 10 // 每页默认显示的数量
+    });
+  });
+</script>
+</body>
+</html>
